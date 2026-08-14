@@ -1,0 +1,4 @@
+1) run : streamlit run app.py
+2) pip install streamlit or py -m pip install streamlit
+even if it is not running go to anaconda prompt then install
+then run it works
