@@ -18,3 +18,6 @@ print(df.describe())
 # Visualization
 sns.scatterplot(data=df, x='Exp', y='Salary')
 plt.show()
+
+stats: 
+https://www.youtube.com/watch?v=qBigTkBLU6g&list=PLblh5JKOoLUK0FLuzwntyYI10UQFUhsY9 
