@@ -8,6 +8,7 @@
 
 Guardrail is validating the user input
 
-<img width="1850" height="1035" alt="image" src="https://github.com/user-attachments/assets/a7243a17-d193-4632-b745-df633f2258eb" />
+<img width="1589" height="902" alt="image" src="https://github.com/user-attachments/assets/a79838af-44e9-4f58-a811-81ac9004980e" />
+
 
 
