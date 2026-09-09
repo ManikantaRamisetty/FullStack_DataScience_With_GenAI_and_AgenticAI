@@ -1,0 +1,192 @@
+What is Seaborn and why do we need it?
+
+Seaborn is a Python visualization library built on top of Matplotlib.
+
+Think of the relationship like this:
+
+Python Data
+    ↓
+Pandas
+    ↓
+Data Analysis
+    ↓
+Seaborn
+    ↓
+Statistical Visualization
+    ↓
+Understand Patterns → Build Better ML Models
+
+The key point is:
+
+Seaborn is not required to build an ML model, but it is extremely useful for understanding your data before building the model.
+
+pip install seaborn
+
+import seaborn as sns
+import matplotlib.pyplot as plt
+got below error 
+
+python -m pip uninstall pandas -y
+python -m pip install --upgrade pip
+python -m pip install --upgrade pandas
+
+---------------------------------------------------------------------------
+AttributeError                            Traceback (most recent call last)
+Cell In[8], line 1
+----> 1 import seaborn as sns
+      2 import matplotlib.pyplot as plt
+      3 
+      4 # Load sample dataset
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\seaborn\__init__.py:2
+      1 # Import seaborn objects
+----> 2 from .rcmod import *  # noqa: F401,F403
+      3 from .utils import *  # noqa: F401,F403
+      4 from .palettes import *  # noqa: F401,F403
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\seaborn\rcmod.py:5
+      3 import matplotlib as mpl
+      4 from cycler import cycler
+----> 5 from . import palettes
+      8 __all__ = ["set_theme", "set", "reset_defaults", "reset_orig",
+      9            "axes_style", "set_style", "plotting_context", "set_context",
+     10            "set_palette"]
+     13 _style_keys = [
+     14 
+     15     "axes.facecolor",
+   (...)     50 
+     51 ]
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\seaborn\palettes.py:9
+      5 import matplotlib as mpl
+      7 from .external import husl
+----> 9 from .utils import desaturate, get_color_cycle
+     10 from .colors import xkcd_rgb, crayons
+     11 from ._compat import get_colormap
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\seaborn\utils.py:11
+      8 from types import ModuleType
+     10 import numpy as np
+---> 11 import pandas as pd
+     12 import matplotlib as mpl
+     13 from matplotlib.colors import to_rgb
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\__init__.py:61
+     58 # let init-time option registration happen
+     59 import pandas.core.config_init  # pyright: ignore[reportUnusedImport] # noqa: F401
+---> 61 from pandas.core.api import (
+     62     # dtype
+     63     ArrowDtype,
+     64     Int8Dtype,
+     65     Int16Dtype,
+     66     Int32Dtype,
+     67     Int64Dtype,
+     68     UInt8Dtype,
+     69     UInt16Dtype,
+     70     UInt32Dtype,
+     71     UInt64Dtype,
+     72     Float32Dtype,
+     73     Float64Dtype,
+     74     CategoricalDtype,
+     75     PeriodDtype,
+     76     IntervalDtype,
+     77     DatetimeTZDtype,
+     78     StringDtype,
+     79     BooleanDtype,
+     80     # missing
+     81     NA,
+     82     isna,
+     83     isnull,
+     84     notna,
+     85     notnull,
+     86     # indexes
+     87     Index,
+     88     CategoricalIndex,
+     89     RangeIndex,
+     90     MultiIndex,
+     91     IntervalIndex,
+     92     TimedeltaIndex,
+     93     DatetimeIndex,
+     94     PeriodIndex,
+     95     IndexSlice,
+     96     # tseries
+     97     NaT,
+     98     Period,
+     99     period_range,
+    100     Timedelta,
+    101     timedelta_range,
+    102     Timestamp,
+    103     date_range,
+    104     bdate_range,
+    105     Interval,
+    106     interval_range,
+    107     DateOffset,
+    108     # conversion
+    109     to_numeric,
+    110     to_datetime,
+    111     to_timedelta,
+    112     # misc
+    113     Flags,
+    114     Grouper,
+    115     factorize,
+    116     unique,
+    117     value_counts,
+    118     NamedAgg,
+    119     array,
+    120     Categorical,
+    121     set_eng_float_format,
+    122     Series,
+    123     DataFrame,
+    124 )
+    126 from pandas.core.dtypes.dtypes import SparseDtype
+    128 from pandas.tseries.api import infer_freq
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\api.py:28
+     16 from pandas.core.dtypes.missing import (
+     17     isna,
+     18     isnull,
+     19     notna,
+     20     notnull,
+     21 )
+     23 from pandas.core.algorithms import (
+     24     factorize,
+     25     unique,
+     26     value_counts,
+     27 )
+---> 28 from pandas.core.arrays import Categorical
+     29 from pandas.core.arrays.boolean import BooleanDtype
+     30 from pandas.core.arrays.floating import (
+     31     Float32Dtype,
+     32     Float64Dtype,
+     33 )
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\arrays\__init__.py:9
+      7 from pandas.core.arrays.boolean import BooleanArray
+      8 from pandas.core.arrays.categorical import Categorical
+----> 9 from pandas.core.arrays.datetimes import DatetimeArray
+     10 from pandas.core.arrays.floating import FloatingArray
+     11 from pandas.core.arrays.integer import IntegerArray
+
+File ~\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\core\arrays\datetimes.py:19
+     15 import numpy as np
+     17 from pandas._config import using_string_dtype
+---> 19 from pandas._libs import (
+     20     lib,
+     21     tslib,
+     22 )
+     23 from pandas._libs.tslibs import (
+     24     BaseOffset,
+     25     NaT,
+   (...)     42     tzconversion,
+     43 )
+     44 from pandas._libs.tslibs.dtypes import abbrev_to_npy_unit
+
+File pandas/_libs/tslib.pyx:61, in init pandas._libs.tslib()
+---> 61 'Could not get source, probably due dynamically evaluated source code.'
+
+AttributeError: partially initialized module 'pandas' from 'c:\Users\mani\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\pandas\__init__.py' has no attribute '_pandas_datetime_CAPI' (most likely due to a circular import)
+
+
+python -m pip uninstall pandas -y
+python -m pip install --upgrade pip
+python -m pip install --upgrade pandas
